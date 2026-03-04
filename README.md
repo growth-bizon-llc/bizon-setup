@@ -32,6 +32,15 @@ chmod +x setup.sh
 To pull the latest changes, reinstall dependencies if needed, and restart the servers:
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/growth-bizon-llc/bizon-setup/main/update.sh -o update.sh
+chmod +x update.sh
+./update.sh
+```
+
+Or if you already cloned the repo:
+
+```bash
+cd bizon-setup
 ./update.sh
 ```
 
