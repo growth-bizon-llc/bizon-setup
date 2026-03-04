@@ -10,7 +10,8 @@ set -euo pipefail
 #   ./start.sh
 # ============================================================================
 
-REPOS_DIR="$(pwd)/bizon-projects"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPOS_DIR="$(dirname "$SCRIPT_DIR")"
 RAILS_PORT=3000
 NEXT_PORT=3001
 

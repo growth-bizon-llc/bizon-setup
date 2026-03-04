@@ -19,7 +19,8 @@ set -euo pipefail
 
 RUBY_REQUIRED="4.0.1"
 NODE_MINIMUM="18"
-REPOS_DIR="$(pwd)/bizon-projects"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPOS_DIR="$(dirname "$SCRIPT_DIR")"
 RAILS_PORT=3000
 NEXT_PORT=3001
 ORG="growth-bizon-llc"
@@ -162,8 +163,6 @@ echo ""
 # ============================================================================
 # 2. Clone repositories
 # ============================================================================
-
-mkdir -p "$REPOS_DIR"
 
 if [ ! -d "$REPOS_DIR/bizon-commerce" ]; then
   log "Cloning bizon-commerce..."
