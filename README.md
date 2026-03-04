@@ -17,8 +17,8 @@ All scripts expect this directory layout:
 ```
 bizon-projects/
   bizon-setup/        <-- this repo (scripts live here)
-  bizon-commerce/     <-- cloned by setup.sh
-  bizon-admin/        <-- cloned by setup.sh
+  bizon-commerce/     <-- Rails 7 API backend (cloned by setup.sh)
+  bizon-admin/        <-- Next.js 15 admin panel (cloned by setup.sh)
 ```
 
 ## Quick Start
@@ -30,30 +30,30 @@ cd bizon-setup
 ./setup.sh
 ```
 
-## Updating
+## Scripts
 
-Pull latest changes, reinstall dependencies if needed, and restart servers:
+| Script       | Command        | Description                                           |
+|--------------|----------------|-------------------------------------------------------|
+| `setup.sh`   | `./setup.sh`   | First-time setup: installs everything from scratch    |
+| `update.sh`  | `./update.sh`  | Pulls latest, reinstalls deps if needed, restarts     |
+| `start.sh`   | `./start.sh`   | Starts both servers and opens the browser             |
 
-```bash
-cd bizon-projects/bizon-setup
-./update.sh
-```
+### setup.sh
 
-This will:
-1. Stop any running servers on ports 3000/3001
+Runs the full setup from zero. Installs prerequisites, clones both repos, installs dependencies, creates and seeds the database, starts the servers, and opens the admin panel.
+
+### update.sh
+
+Pulls the latest changes from both repos and:
+1. Stops any running servers on ports 3000/3001
 2. `git pull` both repos
-3. Reinstall gems/npm packages only if lock files changed
-4. Run new database migrations if any
-5. Restart both servers and reopen the browser
+3. Reinstalls gems/npm packages only if lock files changed
+4. Runs new database migrations if detected
+5. Restarts both servers and reopens the browser
 
-## Starting
+### start.sh
 
-Start both servers without pulling or reinstalling anything:
-
-```bash
-cd bizon-projects/bizon-setup
-./start.sh
-```
+Starts both servers without pulling or reinstalling anything. Useful for day-to-day development when you just want to boot the stack.
 
 ## Services
 
@@ -75,7 +75,7 @@ cd bizon-projects/bizon-setup
 - macOS (Apple Silicon or Intel)
 - Git
 
-Everything else is installed automatically by the setup script.
+Everything else is installed automatically by `setup.sh`.
 
 ## Stopping
 
