@@ -27,6 +27,21 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
+## Updating
+
+To pull the latest changes, reinstall dependencies if needed, and restart the servers:
+
+```bash
+./update.sh
+```
+
+This will:
+1. Stop any running servers on ports 3000/3001
+2. `git pull` both repos
+3. Reinstall gems/npm packages only if lock files changed
+4. Run new database migrations if any
+5. Restart both servers and reopen the browser
+
 ## Services
 
 | Service       | URL                          | Description             |
