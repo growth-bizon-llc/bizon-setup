@@ -51,6 +51,16 @@ This will:
 4. Run new database migrations if any
 5. Restart both servers and reopen the browser
 
+## Starting
+
+To start both servers without pulling or reinstalling anything:
+
+```bash
+./start.sh
+```
+
+This kills any existing process on ports 3000/3001, starts both servers, and opens the admin panel in your browser.
+
 ## Services
 
 | Service       | URL                          | Description             |
